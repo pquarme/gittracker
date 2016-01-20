@@ -1,8 +1,3 @@
-
-
-
-
-
 /**
  * dirPagination - AngularJS module for paginating (almost) anything.
  *
@@ -578,59 +573,3 @@
         };
     }
 })();
-var app = angular.module('npm', ['ngRoute', 'angularUtils.directives.dirPagination']);
-
-
-app.config(function($routeProvider, $locationProvider) {
-	$routeProvider.when('/', {
-		templateUrl : '../templates/default.html',
-        controller: 'homeController'
-	}).when('/detail/:id/:title', {
-		templateUrl : '../templates/detail.html',
-        controller: ''
-	}).otherwise({
-		redirectTo : '/'
-	});
-    
-    $locationProvider.html5Mode(true); 
-});
-
-app.factory('npmAPI', function ($http) {
-    return {
-        getIssues: function (pageNum) {
-            return $http({
-                url: 'https://api.github.com/repos/npm/npm/issues?per_page=25&page=' + pageNum,
-                method: 'GET'
-            });
-        }
-    }
-});
-app.controller('homeController', function (npmAPI, $scope) {
-    console.log('here');
-
-
-    $scope.totalIssues = 1858; //total issue count
-
-
-    //returns a list of issues
-    function getIssues(pageNum) {
-        npmAPI.getIssues(pageNum).success(function (res) {
-            $scope.issues = []; //list of issues
-            $scope.issues = res;
-            console.log(res);
-        }).error(function (res) {
-            console.log('error - ' + res);
-        });
-    }
-
-    $scope.pagination = {
-        current: 1
-    };
-
-    $scope.pageChanged = function (newPage) {
-        getIssues(newPage);
-    };
-
-    getIssues(1); //get initial results onload
-
-});
