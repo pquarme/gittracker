@@ -17,7 +17,6 @@ body {
 }
 
 .truncate {
-  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,14 +83,15 @@ body {
 }
 
 .label-tag {
-  padding: 7px;
-  border-radius: 40px;
+  padding: 4px 15px;
+  border-radius: 5px;
   color: white;
   font-weight: 700;
-  margin: 0 0px 10px;
+  margin: 0 10px 0px 0px;
   min-width: 90px;
   display: inline-block;
   text-align: center;
+  font-size: 12px;
 }
 
 .container {
@@ -132,33 +132,38 @@ body {
   border-bottom: 1px solid #f2f2f2;
 }
 .item .header .header-content {
-  padding: 0px 25px;
-}
-.item .header .header-content div {
-  display: inline-block;
+  padding: 0px 20px;
 }
 .item .header .header-content .title {
-  width: 60%;
-  padding: 15px 0px;
+  display: inline-block;
+  width: 80%;
+  padding: 10px;
 }
-.item .header .header-content .title h1 {
+.item .header .header-content .title .issue-title {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
   color: #161616;
+  display: block;
+}
+.item .header .header-content .title .issue-user {
+  font-size: 13px;
+  color: #545454;
 }
 .item .header .header-content .avatar {
-  padding: 20px 0px;
+  width: 50px;
+  padding: 10px 0px;
+  float: left;
+  display: inline-block;
 }
 .item .content {
-  margin: 25px;
+  margin: 20px;
 }
 .item .content .sub-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #a6a6a6;
 }
 .item .content textarea {
-  margin-top: 10px;
   padding: 10px;
   width: 100%;
   min-height: 80px;
@@ -178,7 +183,7 @@ body {
   border-color: #ff8300;
   transition: all 50ms ease-in;
 }
-.item.preview:hover .header .header-content div h1, .item.preview:focus .header .header-content div h1 {
+.item.preview:hover .header .header-content .issue-title, .item.preview:focus .header .header-content .issue-title {
   color: #ff8300;
   transition: all 50ms ease-in;
 }
@@ -186,21 +191,32 @@ body {
   margin: 10px 0px 20px;
 }
 
+/*.avatar {
+    img {
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+    }
+    span {
+        padding-left: 6px;
+        font-weight: 400;
+        color: #575757;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+    a {
+        &:hover {
+            span {
+                color: $primary-color;
+            }
+        }
+    }
+}*/
 .avatar img {
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  vertical-align: middle;
-}
-.avatar span {
-  padding-left: 6px;
-  font-weight: 400;
-  color: #575757;
-  font-size: 16px;
-  vertical-align: middle;
-}
-.avatar a:hover span {
-  color: #ff8300;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
 }
 
 /* BOOTSTRAP PAGINATION STYLING */

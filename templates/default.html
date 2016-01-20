@@ -3,29 +3,42 @@
         <h2>List of issues</h2>
     </div>
     <div class="sec-2 right">
-        <h2 class="left">Total: 103233</h2>
+        <h2 class="left">Total: {{totalIssues}}</h2>
     </div>
 </div>
+
 <div class="item preview" dir-paginate="issue in issues | itemsPerPage: '25'" total-items="totalIssues" current-page="pagination.current">
     <a href="/detail/3/e">
         <div class="header">
             <div class="header-content">
-                <div class="title truncate">
-                    <h1>{{issue.title}}</h1>
-                </div>
-                <div class="avatar pad right">
-                    <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1700" />
-                    <span>@ figliohulio</span>
+                <div class="avatar-issue pad">
+                    <div class="avatar">
+                        <img ng-src="{{issue.user.avatar_url}}" />
+                    </div>
+                    <div class="title truncate">
+                        <span class="issue-title">{{issue.title}} #{{issue.number}}</span>
+                        <span class="issue-user">submitted by @{{issue.user.login}}</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <p class="sub-title">DESCRIPTION</p>
-            <textarea class="desc" disabled readonly maxlength="140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.Sign up for free</textarea>
+            <div>
+                <p class="sub-title">DESCRIPTION</p>
+                <textarea class="desc" disabled readonly maxlength="140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.Sign up for free</textarea>
+            </div>
+
+
+            <div>
+                <p class="sub-title">LABELS</p>
+                <span class="label-tag" ng-repeat="label in issue.labels" style="background-color: #{{label.color}}">{{label.name}}</span>
+            </div>
         </div>
     </a>
-</div>
+</div> 
+
+
 
 <div class="">
 <dir-pagination-controls ng-if="issues" on-page-change="pageChanged(newPageNumber)" ></dir-pagination-controls>

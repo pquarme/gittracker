@@ -20,7 +20,6 @@ body {
 }
 
 .truncate {
-    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -93,12 +92,13 @@ body {
 
 
 .label-tag {
-       padding: 7px;
-    border-radius: 40px;
+    padding: 4px 15px;
+    border-radius: 5px;
     color: white;
     font-weight: 700;
-    margin: 0 0px 10px;
+    margin: 0 10px 0px 0px;
     min-width: 90px;
     display: inline-block;
     text-align: center;
+    font-size: 12px;
 }
