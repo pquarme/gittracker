@@ -1,0 +1,17 @@
+.nav {
+    height: 50px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: white;
+    p {
+    line-height: 18px;
+    font-weight: 200;
+    color: #777777;
+        b {
+                height: 40px;
+    background: $primary-color;
+    padding: 4px;
+    color: white;
+    border-radius: 4px;
+        }
+    }
+}
