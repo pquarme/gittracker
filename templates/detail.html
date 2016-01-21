@@ -6,8 +6,8 @@
                     <img ng-src="{{issue.user.avatar_url}}" />
                 </div>
                 <div class="title">
-                    <span class="issue-title">{{issue.title}} #{{issue.number}}</span>
-                    <span class="issue-user">submitted by @{{issue.user.login}}</span>
+                    <span class="issue-title">{{issue.title}} <span class="issue-num">#{{issue.number}}</span></span>
+                    <span class="issue-submit">submitted by <a ng-href="{{issue.user.html_url}}" target="_blank"><span class="issue-user">@{{issue.user.login}}</span></a></span>
                 </div>
                 <div class="status">
                     <span class="label-status" ng-class="(issue.state === 'open') ? 'open' : 'closed'">{{issue.state}}</span>

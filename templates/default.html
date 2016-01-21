@@ -7,22 +7,23 @@
     </div>
 </div>
 
-<div class="item preview" dir-paginate="issue in issues | itemsPerPage: '25'" total-items="totalIssues" current-page="pagination.current">
-    <a ng-href="/detail/{{issue.number}}/{{issue.title | cleanURL}}">
+<div class="item default" dir-paginate="issue in issues | itemsPerPage: '25'" total-items="totalIssues" current-page="pagination.current">
+<a ng-href="/detail/{{issue.number}}/{{issue.title | cleanURL}}">
         <div class="header">
             <div class="header-content">
                 <div class="avatar-issue pad">
                     <div class="avatar">
                         <img ng-src="{{issue.user.avatar_url}}" />
                     </div>
-                    <div class="title">
-                        <span class="issue-title">{{issue.title}} #{{issue.number}}</span>
-                        <span class="issue-user">submitted by @{{issue.user.login}}</span>
+                    <div class="title preview">
+                        <span class="issue-title">{{issue.title}} <span class="issue-num">#{{issue.number}}</span></span>
+                        <span class="issue-submit">submitted by <a ng-href="{{issue.user.html_url}}" target="_blank"><span class="issue-user">@{{issue.user.login}}</span></a></span>
                     </div>
                 </div>
             </div>
         </div>
-
+    </a>
+<a ng-href="/detail/{{issue.number}}/{{issue.title | cleanURL}}">
         <div class="content">
             <div>
                 <p class="sub-title">DESCRIPTION</p>

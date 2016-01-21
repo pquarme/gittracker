@@ -73,7 +73,6 @@ body {
   border-radius: 2px;
   color: white;
   font-weight: 700;
-  margin: 0 10px;
 }
 .label-status.closed {
   background-color: #d94040;
@@ -139,15 +138,29 @@ body {
   width: 70%;
   padding: 10px;
 }
+.item .header .header-content .title.preview {
+  width: 80%;
+}
 .item .header .header-content .title .issue-title {
   font-weight: 600;
   font-size: 16px;
   color: #161616;
   display: block;
+  word-wrap: break-word;
+}
+.item .header .header-content .title .issue-submit {
+  font-size: 13px;
+  color: #545454;
+}
+.item .header .header-content .title .issue-num {
+  color: #A5A5A5;
 }
 .item .header .header-content .title .issue-user {
   font-size: 13px;
-  color: #545454;
+  color: #02a5de;
+}
+.item .header .header-content .title .issue-user:hover {
+  text-decoration: underline;
 }
 .item .header .header-content .avatar {
   width: 50px;
@@ -159,7 +172,7 @@ body {
   display: inline-block;
   width: 2%;
   float: right;
-  padding: 15px 60px 10px 0px;
+  padding: 15px 41px 10px 0px;
 }
 @media (max-width: 560px) {
   .item .header .header-content .avatar {
@@ -167,9 +180,11 @@ body {
     text-align: center;
     margin: 0 auto;
   }
-  .item .header .header-content .title {
+  .item .header .header-content .title,
+  .item .header .header-content .title.preview {
     width: 100%;
     display: block;
+    padding: 10px 0px;
   }
   .item .header .header-content .status {
     display: block;
@@ -198,16 +213,19 @@ body {
 .item .content .full {
   min-height: 400px;
 }
-.item.preview {
+.item.default {
   margin: 10px 0px 40px;
 }
-.item.preview:hover, .item.preview:focus {
+.item.default:hover, .item.default:focus {
   border-color: #ff8300;
   transition: all 50ms ease-in;
 }
-.item.preview:hover .header .header-content .issue-title, .item.preview:focus .header .header-content .issue-title {
+.item.default:hover .header .header-content .issue-title, .item.default:hover .header .header-content .issue-num, .item.default:focus .header .header-content .issue-title, .item.default:focus .header .header-content .issue-num {
   color: #ff8300;
   transition: all 50ms ease-in;
+}
+.item.default:hover .header .header-content .issue-title:hover, .item.default:hover .header .header-content .issue-num:hover, .item.default:focus .header .header-content .issue-title:hover, .item.default:focus .header .header-content .issue-num:hover {
+  text-decoration: underline;
 }
 .item.detail {
   margin: 10px 0px 20px;
