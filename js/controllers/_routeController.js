@@ -1,10 +1,11 @@
 app.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when('/', {
 		templateUrl : '../templates/default.html',
-        controller: 'homeController'
+        controller: 'homeController',
+        reloadOnSearch: false
 	}).when('/detail/:id/:title', {
 		templateUrl : '../templates/detail.html',
-        controller: ''
+        controller: 'detailController'
 	}).otherwise({
 		redirectTo : '/'
 	});

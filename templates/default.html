@@ -8,7 +8,7 @@
 </div>
 
 <div class="item preview" dir-paginate="issue in issues | itemsPerPage: '25'" total-items="totalIssues" current-page="pagination.current">
-    <a href="/detail/3/e">
+    <a ng-href="/detail/{{issue.number}}/{{issue.title | cleanURL}}">
         <div class="header">
             <div class="header-content">
                 <div class="avatar-issue pad">
@@ -26,12 +26,11 @@
         <div class="content">
             <div>
                 <p class="sub-title">DESCRIPTION</p>
-                <div class="markdown-body" markdown content="issue.body"></div>
-             <!--   <textarea class="desc" disabled readonly maxlength="140"><b>oijooijoijoj 8 8</b>{{issue.body}}</textarea>-->
+                <div class="markdown-body" markdown content="issue.body" preview="true"></div>
             </div>
 
 
-            <div>
+            <div ng-if="issue.labels.length > 0">
                 <p class="sub-title">LABELS</p>
                 <span class="label-tag" ng-repeat="label in issue.labels" style="background-color: #{{label.color}}">{{label.name}}</span>
             </div>

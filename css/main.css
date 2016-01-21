@@ -69,8 +69,8 @@ body {
 }
 
 .label-status {
-  padding: 6px;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 2px;
   color: white;
   font-weight: 700;
   margin: 0 10px;
@@ -118,7 +118,7 @@ body {
   background: #ff8300;
   padding: 4px;
   color: white;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .item {
@@ -136,7 +136,7 @@ body {
 }
 .item .header .header-content .title {
   display: inline-block;
-  width: 80%;
+  width: 70%;
   padding: 10px;
 }
 .item .header .header-content .title .issue-title {
@@ -154,6 +154,28 @@ body {
   padding: 10px 0px;
   float: left;
   display: inline-block;
+}
+.item .header .header-content .status {
+  display: inline-block;
+  width: 2%;
+  float: right;
+  padding: 15px 60px 10px 0px;
+}
+@media (max-width: 560px) {
+  .item .header .header-content .avatar {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .item .header .header-content .title {
+    width: 100%;
+    display: block;
+  }
+  .item .header .header-content .status {
+    display: block;
+    float: none;
+    padding-top: 0px;
+  }
 }
 .item .content {
   margin: 20px;

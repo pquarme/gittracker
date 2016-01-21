@@ -1,66 +1,57 @@
-       <div class="item detail pad-top">
-                <div class="header">
-                    <div class="header-content">
-                        <div class="title truncate">
-                        <h1>Error installing derby-starter <span class="label-status closed">closed</span></h1>
-                            </div>
-                        <div class="avatar pad right">
-                            <a href="">
-                            <img  src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1700" />
-                            <span >@ figliohulio</span>
-                            </a>
-                        </div>
-                    </div>
+<div class="item detail pad-top">
+    <div class="header">
+        <div class="header-content">
+            <div class="avatar-issue pad">
+                <div class="avatar">
+                    <img ng-src="{{issue.user.avatar_url}}" />
                 </div>
-                
-                <div class="content">
-                    <div class="desc">
-                    <p class="sub-title">DESCRIPTION</p>
-                    <textarea class="desc full" disabled readonly data-role="none">I'm using npm 2.7.4 with nodejs v0.12.2 on Windows 7x64 and I'm running into an odd issue. With the below package.json, when running npm install the process will hang after it runs node-gyp for ws for karma. But if I run npm install -ddd then it doesn't hang and installs correctly.
-
-{
-  "name": "npmBug",
-  "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "~1.7.1",
-    "karma": "^0.12.31"
-  }
-}
-If I run with just npm install -dd then it hangs at this line:
-
-npm info install karma@0.12.31
-npm info postinstall karma@0.12.31
-npm verb unlock done using C:\Users\buschs1\AppData\Roaming\npm-cache\_locks\karma-f090bd27423c129a.lock for C:\Users\buschs1\Desktop\npmBug\node_modules\karma
-I'm able to reproduce this on another machine (same setup, node, Win7x64, but doesn't have python, etc. setup for node-gyp) and it happens when using io.js v1.6.3 as well. Since it does install when changing logging settings in npm, I've opened the issue against npm, let me know if it belongs elsewhere. Please let me know if you need anymore information.</textarea>
-                    </div>
-                    <div >
-                    <p class="sub-title">LABELS</p>
-                    <span class="label-tag" style="background-color: red">bug</span>
-                    </div>
+                <div class="title">
+                    <span class="issue-title">{{issue.title}} #{{issue.number}}</span>
+                    <span class="issue-user">submitted by @{{issue.user.login}}</span>
+                </div>
+                <div class="status">
+                    <span class="label-status" ng-class="(issue.state === 'open') ? 'open' : 'closed'">{{issue.state}}</span>
                 </div>
             </div>
-         
-       <div class="section-title">
-                <div class="sec-1">
-                    <h2>Comments</h2>
-                </div>
-            </div>
-       
-       <div class="comment-section">
-            <div class="avatar pad ">
-                            <a href="">
-                            <img  src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1700" />
-                            <span >@ figliohulio</span>
-                            </a>
-                        </div>
-                      
-           
-                    <p class="comment" >FWIW I installed npm 3.0.0 beta and am still seeing npm hang, although this time it is stalling after `shrinkwrap` logging, eg\r\n\r\n```\r\nnpm sill addShrinkwrap Adding shrinkwrap to esutils\r\nnpm sill addShrinkwrap Adding shrinkwrap to detect-indent\r\nnpm sill addShrinkwrap Adding shrinkwrap to repeating\r\nnpm sill addShrinkwrap Adding shrinkwrap to strip-json-comments\r\nnpm sill addShrinkwrap Adding shrinkwrap to regenerator\r\n```\r\n\r\nThe command i'm using to test is:\r\n\r\n```\r\nfor i in `seq 1 100`; do rm -rf node_modules/ && npm install browserify babel eslint jshint plato karma watchify; done\r\n```\r\n\r\n```\r\n$ node -v\r\nv0.12.4\r\n$ npm -v\r\n3.0.0\r\n$ uname -a\r\nDarwin egon 14.3.0 Darwin Kernel Version 14.3.0: Mon Mar 23 11:59:05 PDT 2015; root:xnu-2782.20.48~5/RELEASE_X86_64 x86_64\r\n$ ulimit -n\r\n2560\r\n```</p>
+        </div>
+    </div>
 
-       </div>
-       
-      <div class="center">
-       <div class="button">
-           <a href="" ><p>LOAD MORE COMMENTS</p></a>
-          </div> </div>
+    <div class="content">
+        <div ng-if="issue.body">
+            <p class="sub-title">DESCRIPTION</p>
+            <div class="markdown-body" markdown content="issue.body" preview="false"></div>
+        </div>
+
+        <div ng-if="issue.labels.length > 0">
+            <p class="sub-title">LABELS</p>
+            <span class="label-tag" ng-repeat="label in issue.labels" style="background-color: #{{label.color}}">{{label.name}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-title">
+    <div class="sec-1">
+        <h2>Comments</h2>
+    </div>
+</div>
+
+<div class="comment-section">
+    <div class="avatar pad ">
+        <a href="">
+            <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1700" />
+            <span>@ figliohulio</span>
+        </a>
+    </div>
+
+
+    <p class="comment">FWIW I installed npm 3.0.0 beta and am still seeing npm hang, although this time it is stalling after `shrinkwrap` logging, eg\r\n\r\n```\r\nnpm sill addShrinkwrap Adding shrinkwrap to esutils\r\nnpm sill addShrinkwrap Adding shrinkwrap to detect-indent\r\nnpm sill addShrinkwrap Adding shrinkwrap to repeating\r\nnpm sill addShrinkwrap Adding shrinkwrap to strip-json-comments\r\nnpm sill addShrinkwrap Adding shrinkwrap to regenerator\r\n```\r\n\r\nThe command i'm using to test is:\r\n\r\n```\r\nfor i in `seq 1 100`; do rm -rf node_modules/ && npm install browserify babel eslint jshint plato karma watchify; done\r\n```\r\n\r\n```\r\n$ node -v\r\nv0.12.4\r\n$ npm -v\r\n3.0.0\r\n$ uname -a\r\nDarwin egon 14.3.0 Darwin Kernel Version 14.3.0: Mon Mar 23 11:59:05 PDT 2015; root:xnu-2782.20.48~5/RELEASE_X86_64 x86_64\r\n$ ulimit -n\r\n2560\r\n```</p>
+
+</div>
+
+<div class="center">
+    <div class="button">
+        <a href="">
+            <p>LOAD MORE COMMENTS</p>
+        </a>
+    </div>
+</div>

@@ -2,7 +2,8 @@ app.directive('markdown', function (npmAPI) {
     return {
         restrict: 'A',
         scope: {
-            content: '='
+            content: '=',
+            preview: '='
         },
         link: function (scope, elem, attr) {
             var body = {};
@@ -10,7 +11,11 @@ app.directive('markdown', function (npmAPI) {
             body.mode = 'gfm';
 
             npmAPI.getMarkdown(body).success(function (res) {
-               elem.append(res.substr(0, 140) + '...');
+                if(scope.preview) {
+                    elem.append(res.substr(0, 140) + '...');
+                } else {
+                    elem.append(res);
+                }
             });
         }
     };

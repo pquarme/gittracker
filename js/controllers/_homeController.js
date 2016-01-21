@@ -1,9 +1,18 @@
 app.controller('homeController', function (npmAPI, $scope, $location, $anchorScroll) {
-    console.log('here');
-
-
-    $scope.totalIssues = 1858; //total issue count
-
+    
+    $scope.pagination = { //default page for pagination
+        current: 1
+    };
+    
+    if($location.search().page) { //if page number is set in url, replace the default value
+        $scope.pagination.current = $location.search().page;
+    }
+    
+    
+    //get repository details for 'open_issues_count'
+    npmAPI.getRepoInfo().success( function (res) {
+        $scope.totalIssues = res.open_issues_count; //total issue count
+    });
 
     //returns a list of issues
     function getIssues(pageNum) {
@@ -16,23 +25,11 @@ app.controller('homeController', function (npmAPI, $scope, $location, $anchorScr
         });
     }
 
-    $scope.pagination = {
-        current: 1
-    };
-
     $scope.pageChanged = function (newPage) {
+        $location.search('page', newPage); 
         getIssues(newPage);
-        
-            
-            scrollTop();
+        $anchorScroll(); //scroll to top of page after fetching results
     };
 
-    getIssues(1); //get initial results onload
-
-    
-    //scroll to top of page after fetching results
-    function scrollTop () {
-       //$location.hash('nav');
-        $anchorScroll();
-    }
+    getIssues($scope.pagination.current); //get initial results onload
 });

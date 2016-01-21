@@ -12,6 +12,18 @@ app.factory('npmAPI', function ($http) {
                 method: 'POST',
                 data: data
             });
+        },
+        getRepoInfo: function () {
+            return $http({
+                url: 'https://api.github.com/repos/npm/npm?access_token=88f619a32eb427d205466e6679bb7798a841f1a1',
+                method: 'GET'
+            });
+        },
+        getIssueInfo: function (issueNum) {
+            return $http({
+                url: 'https://api.github.com/repos/npm/npm/issues/' + issueNum + '?access_token=88f619a32eb427d205466e6679bb7798a841f1a1',
+                method: 'GET'
+            });
         }
     }
 });
