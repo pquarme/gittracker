@@ -1,4 +1,4 @@
-app.controller('homeController', function (npmAPI, $scope) {
+app.controller('homeController', function (npmAPI, $scope, $location, $anchorScroll) {
     console.log('here');
 
 
@@ -10,7 +10,7 @@ app.controller('homeController', function (npmAPI, $scope) {
         npmAPI.getIssues(pageNum).success(function (res) {
             $scope.issues = []; //list of issues
             $scope.issues = res;
-            console.log(res);
+            //console.log(res);
         }).error(function (res) {
             console.log('error - ' + res);
         });
@@ -22,8 +22,17 @@ app.controller('homeController', function (npmAPI, $scope) {
 
     $scope.pageChanged = function (newPage) {
         getIssues(newPage);
+        
+            
+            scrollTop();
     };
 
     getIssues(1); //get initial results onload
 
+    
+    //scroll to top of page after fetching results
+    function scrollTop () {
+       //$location.hash('nav');
+        $anchorScroll();
+    }
 });

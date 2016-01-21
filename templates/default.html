@@ -15,7 +15,7 @@
                     <div class="avatar">
                         <img ng-src="{{issue.user.avatar_url}}" />
                     </div>
-                    <div class="title truncate">
+                    <div class="title">
                         <span class="issue-title">{{issue.title}} #{{issue.number}}</span>
                         <span class="issue-user">submitted by @{{issue.user.login}}</span>
                     </div>
@@ -26,7 +26,8 @@
         <div class="content">
             <div>
                 <p class="sub-title">DESCRIPTION</p>
-                <textarea class="desc" disabled readonly maxlength="140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.Sign up for free</textarea>
+                <div class="markdown-body" markdown content="issue.body"></div>
+             <!--   <textarea class="desc" disabled readonly maxlength="140"><b>oijooijoijoj 8 8</b>{{issue.body}}</textarea>-->
             </div>
 
 
