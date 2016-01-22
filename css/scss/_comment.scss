@@ -1,0 +1,18 @@
+.comment-section {
+    margin: 10px 0px 30px;
+    .avatar {
+        float: left;
+    }
+    .comment {
+        margin: 0 20px 0px 60px;
+        .user-id {
+            a {
+            font-size: 16px;
+            color: #02a5de;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

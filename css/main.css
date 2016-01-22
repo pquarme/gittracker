@@ -35,18 +35,6 @@ body {
   text-transform: uppercase;
 }
 
-.comment-section {
-  padding: 10px 0px;
-}
-.comment-section .comment {
-  margin: 1px 0px 0px 40px;
-  padding: 10px;
-  background-color: #FAFAFA;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #2D2D2D;
-}
-
 .center {
   margin: 0 auto;
   text-align: center;
@@ -229,6 +217,23 @@ body {
 }
 .item.detail {
   margin: 10px 0px 20px;
+}
+
+.comment-section {
+  margin: 10px 0px 30px;
+}
+.comment-section .avatar {
+  float: left;
+}
+.comment-section .comment {
+  margin: 0 20px 0px 60px;
+}
+.comment-section .comment .user-id a {
+  font-size: 16px;
+  color: #02a5de;
+}
+.comment-section .comment .user-id:hover {
+  text-decoration: underline;
 }
 
 /*.avatar {

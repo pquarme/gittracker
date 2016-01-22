@@ -7,7 +7,8 @@
                 </div>
                 <div class="title">
                     <span class="issue-title">{{issue.title}} <span class="issue-num">#{{issue.number}}</span></span>
-                    <span class="issue-submit">submitted by <a ng-href="{{issue.user.html_url}}" target="_blank"><span class="issue-user">@{{issue.user.login}}</span></a></span>
+                    <span class="issue-submit">submitted by <a ng-href="{{issue.user.html_url}}" target="_blank"><span class="issue-user">@{{issue.user.login}}</span></a>
+                    </span>
                 </div>
                 <div class="status">
                     <span class="label-status" ng-class="(issue.state === 'open') ? 'open' : 'closed'">{{issue.state}}</span>
@@ -35,22 +36,20 @@
     </div>
 </div>
 
-<div class="comment-section">
-    <div class="avatar pad ">
-        <a href="">
-            <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1700" />
-            <span>@ figliohulio</span>
-        </a>
+<div class="comment-section pad" ng-repeat="comment in comments">
+    <div class="avatar">
+        <img ng-src="{{comment.user.avatar_url}}" />
     </div>
 
-
-    <p class="comment">FWIW I installed npm 3.0.0 beta and am still seeing npm hang, although this time it is stalling after `shrinkwrap` logging, eg\r\n\r\n```\r\nnpm sill addShrinkwrap Adding shrinkwrap to esutils\r\nnpm sill addShrinkwrap Adding shrinkwrap to detect-indent\r\nnpm sill addShrinkwrap Adding shrinkwrap to repeating\r\nnpm sill addShrinkwrap Adding shrinkwrap to strip-json-comments\r\nnpm sill addShrinkwrap Adding shrinkwrap to regenerator\r\n```\r\n\r\nThe command i'm using to test is:\r\n\r\n```\r\nfor i in `seq 1 100`; do rm -rf node_modules/ && npm install browserify babel eslint jshint plato karma watchify; done\r\n```\r\n\r\n```\r\n$ node -v\r\nv0.12.4\r\n$ npm -v\r\n3.0.0\r\n$ uname -a\r\nDarwin egon 14.3.0 Darwin Kernel Version 14.3.0: Mon Mar 23 11:59:05 PDT 2015; root:xnu-2782.20.48~5/RELEASE_X86_64 x86_64\r\n$ ulimit -n\r\n2560\r\n```</p>
-
+    <div class="comment">
+        <span class="user-id"> <a ng-href="{{comment.user.html_url}}" target="_blank">@{{comment.user.login}}</a></span>
+        <div class="markdown-body" markdown content="comment.body" preview="false"></div>
+    </div>
 </div>
 
 <div class="center">
     <div class="button">
-        <a href="">
+        <a href="" ng-click="getComment()">
             <p>LOAD MORE COMMENTS</p>
         </a>
     </div>

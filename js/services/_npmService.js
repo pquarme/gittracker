@@ -24,6 +24,12 @@ app.factory('npmAPI', function ($http) {
                 url: 'https://api.github.com/repos/npm/npm/issues/' + issueNum + '?access_token=88f619a32eb427d205466e6679bb7798a841f1a1',
                 method: 'GET'
             });
+        },
+        getComment: function (issueNum, pageNum) {
+            return $http({
+                url: 'https://api.github.com/repos/npm/npm/issues/' + issueNum + '/comments?access_token=88f619a32eb427d205466e6679bb7798a841f1a1&per_page=25&page=' + pageNum,
+                method: 'GET'
+            });
         }
     }
 });

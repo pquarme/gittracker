@@ -29,6 +29,8 @@ app.controller('homeController', function (npmAPI, $scope, $location, $anchorScr
         $location.search('page', newPage); 
         getIssues(newPage);
         $anchorScroll(); //scroll to top of page after fetching results
+        
+        $scope.issues = null;
     };
 
     getIssues($scope.pagination.current); //get initial results onload
