@@ -5,18 +5,27 @@ app.controller('detailController', function ($scope, npmAPI, $routeParams) {
     //get issue info
     npmAPI.getIssueInfo(issueNum).success(function (res) {
         $scope.issue = res;
-        totalComment = res.comment;
+        totalComment = res.comments;
+        setMaxPage();
     });
 
     //get comments
-    var maxPage = totalComment / 25;
-    var currPage = 1;
+    var maxPage = 0;
+    function setMaxPage() { //set the maximum number of pages for comments
+        maxPage = Math.ceil(totalComment / 25);
+        if (maxPage < 1) {
+            maxPage = 1;
+        }
+    }
+    
+    
+    var currPage = 1; //val for the current page in comments
 
     $scope.comments = [];
     $scope.isBusy = false;
 
     $scope.getComment = function () {
-        if ($scope.isBusy) {
+        if ($scope.isBusy) { //if a list of comments is being retreived return null
             return;
         }
 
@@ -26,11 +35,15 @@ app.controller('detailController', function ($scope, npmAPI, $routeParams) {
                 $scope.comments.push(res[i]);
             }
             
+            /*
+             *if the curr page equals the max page, busy is set to true //stop user from requesting more comments)
+             */
             (currPage === maxPage) ? $scope.isBusy = true : $scope.isBusy = false;
             
             currPage++;
+            
         });
     }
     
-    $scope.getComment();
+    $scope.getComment(); //get initial list of comments
 });

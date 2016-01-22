@@ -36,6 +36,11 @@
     </div>
 </div>
 
+<div ng-if="comments.length === 0" class="comment-section center pad">
+    <h3>No comments</h3>     
+</div>
+
+<div ng-if="comments.length > 0">
 <div class="comment-section pad" ng-repeat="comment in comments">
     <div class="avatar">
         <img ng-src="{{comment.user.avatar_url}}" />
@@ -47,10 +52,15 @@
     </div>
 </div>
 
-<div class="center">
-    <div class="button">
-        <a href="" ng-click="getComment()">
-            <p>LOAD MORE COMMENTS</p>
-        </a>
+<div  class="center">
+    <div>
+        <button ng-if="!isBusy" class="button"  ng-click="getComment()">
+            LOAD MORE COMMENTS
+        </button>
+        
+         <button ng-if="isBusy" class="button disabled">
+            LOAD MORE COMMENTS
+        </button>
     </div>
+</div>
 </div>
