@@ -41,6 +41,7 @@
 
 
 
-<div class="">
-<dir-pagination-controls ng-if="issues" on-page-change="pageChanged(newPageNumber)" max-size="5"></dir-pagination-controls>
+<div>
+    <dir-pagination-controls class="visible-des" ng-if="issues" on-page-change="pageChanged(newPageNumber)" max-size="9"></dir-pagination-controls>
+    <dir-pagination-controls class="visible-mob" ng-if="issues" on-page-change="pageChanged(newPageNumber)" max-size="5"></dir-pagination-controls>
 </div>

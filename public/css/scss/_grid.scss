@@ -6,3 +6,22 @@
     padding-right: 15px;
     display: block;
 }
+
+
+ @media (max-width: 560px) {
+    .visible-mob {
+        display: block;
+    }
+    .visible-des {
+        display: none;
+    }
+}
+
+@media (min-width: 560px) {
+    .visible-mob {
+        display: none;
+    }
+    .visible-des {
+        display: block;
+    }
+}

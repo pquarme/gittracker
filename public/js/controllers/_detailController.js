@@ -2,13 +2,6 @@ app.controller('detailController', function ($scope, npmAPI, $routeParams) {
     var issueNum = $routeParams.id;
     var totalComment = 0; //total number of comments
 
-    //get issue info
-    npmAPI.getIssueInfo(issueNum).success(function (res) {
-        $scope.issue = res;
-        totalComment = res.comments;
-        setMaxPage();
-    });
-
     //get comments
     var maxPage = 0;
     function setMaxPage() { //set the maximum number of pages for comments
@@ -45,5 +38,12 @@ app.controller('detailController', function ($scope, npmAPI, $routeParams) {
         });
     }
     
-    $scope.getComment(); //get initial list of comments
+    
+    //get issue info
+    npmAPI.getIssueInfo(issueNum).success(function (res) {
+        $scope.issue = res;
+        totalComment = res.comments;
+        setMaxPage();
+        $scope.getComment(); //get initial list of comments
+    });
 });
