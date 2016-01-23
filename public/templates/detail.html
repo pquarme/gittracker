@@ -37,26 +37,26 @@
 </div>
 
 <div ng-if="comments.length === 0" class="comment-section center pad">
-    <h3>No comments</h3>     
+    <h3>No comments</h3>
 </div>
 
 <div ng-if="comments.length > 0">
-<div class="comment-section pad" ng-repeat="comment in comments">
-    <div class="avatar">
-        <img ng-src="{{comment.user.avatar_url}}" />
+    <div class="comment-section pad" ng-repeat="comment in comments">
+        <div class="avatar">
+            <img ng-src="{{comment.user.avatar_url}}" />
+        </div>
+
+        <div class="comment">
+            <span class="user-id"> <a ng-href="{{comment.user.html_url}}" target="_blank">@{{comment.user.login}}</a></span>
+            <div class="markdown-body comment-markdown" markdown content="comment.body" preview="false"></div>
+        </div>
     </div>
 
-    <div class="comment">
-        <span class="user-id"> <a ng-href="{{comment.user.html_url}}" target="_blank">@{{comment.user.login}}</a></span>
-        <div class="markdown-body comment-markdown" markdown content="comment.body" preview="false"></div>
+    <div class="center">
+        <div>
+            <button ng-if="!isBusy" class="button" ng-click="getComment()">
+                LOAD MORE COMMENTS
+            </button>
+        </div>
     </div>
-</div>
-
-<div  class="center">
-    <div>
-        <button ng-if="!isBusy" class="button"  ng-click="getComment()">
-            LOAD MORE COMMENTS
-        </button>
-    </div>
-</div>
 </div>

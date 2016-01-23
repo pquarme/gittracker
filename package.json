@@ -1,7 +1,7 @@
 {
-  "name": "NPMIssueTracker",
+  "name": "NPMIssueViewer",
   "version": "0.0.1",
-  "description": "A webapp for tracking and display issues on git repositories",
+  "description": "A webapp for viewing issues on git repositories",
   "dependencies": {
     "cors": "^2.7.1",
     "express": "^4.13.4"
