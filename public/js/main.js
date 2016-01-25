@@ -1,4 +1,6 @@
 //@prepros-append plugins/dirPagination.js
+//@prepros-append plugins/marked.js
+//@prepros-append plugins/angular-marked.js
 //@prepros-append controllers/_appController.js
 //@prepros-append filters/_filters.js
 //@prepros-append services/_npmService.js
