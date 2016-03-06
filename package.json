@@ -8,8 +8,8 @@
   },
   "engine": "node >=0.6.x",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
-  "main": "server.js",
+  "main": "index.js",
   "author": "Policarp Quarcoo"
 }
