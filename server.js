@@ -9,9 +9,13 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 
-app.use(function(req, res) {
+app.use(function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
 
-app.listen(app.get('port'));
+app.listen(app.get('port'), function () {
+    console.log('*** GIT Issue Tracker Server Started : http://localhost:' + app.get('port') + '***');
+});
+
+

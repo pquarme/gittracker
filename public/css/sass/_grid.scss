@@ -25,3 +25,17 @@
         display: block;
     }
 }
+
+@media (max-width: 560px) {
+    .hidden-mob {
+        display: none !important;
+    }
+}
+
+.default-page {
+        margin-top: 40px !important;
+}
+
+.detail-page {
+        margin-top: 80px !important;
+}

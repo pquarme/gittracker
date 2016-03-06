@@ -4,12 +4,17 @@
   "description": "A webapp for viewing issues on git repositories",
   "dependencies": {
     "cors": "^2.7.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-live-server": "0.0.29",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
   },
   "engine": "node >=0.6.x",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
-  "main": "index.js",
+  "main": "server.js",
   "author": "Policarp Quarcoo"
 }
