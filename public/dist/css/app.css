@@ -177,13 +177,13 @@ h3 {
           margin: 0 auto; }
         .item .header .header-content .title,
         .item .header .header-content .title.preview {
-          width: 100%;
-          display: block;
+          display: inline-block;
           padding: 10px 0px; }
         .item .header .header-content .status {
-          display: block;
-          float: none;
-          padding-top: 0px; } }
+          padding-right: 50px;
+          /*display: block;
+                    float: none;
+                    padding-top: 0px;*/ } }
   .item .content {
     margin: 20px; }
     .item .content .sub-title {

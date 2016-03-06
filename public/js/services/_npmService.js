@@ -1,5 +1,5 @@
 app.factory('npmAPI', function ($http) {
-    var accessToken = '88f619a32eb427d205466e6679bb7798a841f1a1';
+    var accessToken = '';
     
     return {
         getIssues: function (pageNum) {
